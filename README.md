@@ -16,13 +16,13 @@
 
 ### Настройка окружения
 1. Открыть код программы в IDEA.
-2. Запустить контейнеры с MySql, PostgreSQL и Node.js (для их запуска установлен Docker) в терминале с помощью команды docker-compose up.
+2. Запустить контейнеры с MySql, PostgreSQL и Node.js (для их запуска установлен Docker) в терминале с помощью команды docker-compose up --build.
 3. Запустить тестируемый сервис в терминале:
-* для работы с MySQL с помощью команды  java -jar ./artifacts/aqa-shop.jar -P:jdbc.url=mysql://localhost:3306/app -P:jdbc.user=app -P:jdbc.password=pass;
-* для работы с Postgres с помощью команды  java -jar ./artifacts/aqa-shop.jar -P:jdbc.url=postgresql://localhost:5432/app -P:jdbc.user=app -P:jdbc.password=pass;
+* для работы с MySQL с помощью команды  java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar;
+* для работы с Postgres с помощью команды  java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar;
 4. Запустить тесты в терминале:
-* для работы с MySQL с помощью команды ./gradlew -Ddb.url=jdbc:mysql://localhost:3306/app clean test
-* для работы с Postgres с помощью команды ./gradlew -Ddb.url=jdbc:postgresql://localhost:5432/app clean test
+* для работы с MySQL с помощью команды ./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"
+* для работы с Postgres с помощью команды ./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app"
 
 ### Формирование отчетов Allure
 для получения отчета использовать команду ./gradlew allureServe

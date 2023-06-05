@@ -21,13 +21,13 @@ public class CreditPage {
     private SelenideElement notificationSuccess = $(".notification_status_ok ");
     private SelenideElement notificationError = $(".notification_status_error ");
     private SelenideElement cardNumberFormatError = $(byText("Неверный формат"));
-    private SelenideElement emptyCardNumberError = $(byText("Неверный формат"));
-    private SelenideElement wrongMonthError = $(byText("Неверно указан срок действия карты"));
-    private SelenideElement emptyMonthError = $(byText("Неверный формат"));
+    private SelenideElement wrongExpirationMonthError = $(byText("Неверно указан срок действия карты"));
+    private SelenideElement wrongFormatMonthError = $(byText("Неверный формат"));
     private SelenideElement previousYearError = $(byText("Истёк срок действия карты"));
-    private SelenideElement emptyYearError = $(byText("Неверный формат"));
-    private SelenideElement wrongYearError = $(byText("Неверно указан срок действия карты"));
+    private SelenideElement wrongFormatYearError = $(byText("Неверный формат"));
+    private SelenideElement wrongExpirationYearError = $(byText("Неверно указан срок действия карты"));
     private SelenideElement emptyOwnerError = $(byText("Поле обязательно для заполнения"));
+    private SelenideElement ownerFormatError = $(byText("Неверный формат"));
     private SelenideElement cvcFormatError = $(byText("Неверный формат"));
     private SelenideElement cvcEmptyError = $(byText("Неверный формат"));
 
@@ -52,44 +52,46 @@ public class CreditPage {
         notificationError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean cardNumberFormatErrorVisible() {
-        return cardNumberFormatError.isDisplayed();
+    public void cardNumberFormatErrorVisible() {
+        cardNumberFormatError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean emptyCardNumberErrorVisible() {
-        return emptyCardNumberError.isDisplayed();
+
+    public void wrongFormatMonthErrorVisible() {
+        wrongFormatMonthError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean wrongMonthErrorVisible() {
-        return wrongMonthError.isDisplayed();
+    public void wrongExpirationMonthErrorVisible() {
+        wrongExpirationMonthError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean emptyMonthErrorVisible() {
-        return emptyMonthError.isDisplayed();
+    public void previousYearErrorVisible() {
+        previousYearError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean previousYearErrorVisible() {
-        return previousYearError.isDisplayed();
+    public void wrongFormatYearErrorVisible() {
+        wrongFormatYearError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean emptyYearErrorVisible() {
-        return emptyYearError.isDisplayed();
+    public void wrongExpirationYearErrorVisible() {
+        wrongExpirationYearError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean wrongYearErrorVisible() {
-        return wrongYearError.isDisplayed();
+
+    public void emptyOwnerErrorVisible() {
+        emptyOwnerError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean emptyOwnerErrorVisible() {
-        return emptyOwnerError.isDisplayed();
+    public void ownerFormatErrorVisible() {
+        ownerFormatError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean cvcFormatErrorVisible() {
-        return cvcFormatError.isDisplayed();
+    public void cvcFormatErrorVisible() {
+        cvcFormatError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public boolean cvcEmptyErrorVisible() {
-        return cvcEmptyError.isDisplayed();
+    public void cvcEmptyErrorVisible() {
+        cvcEmptyError.shouldBe(visible, Duration.ofSeconds(15));
     }
 
 }

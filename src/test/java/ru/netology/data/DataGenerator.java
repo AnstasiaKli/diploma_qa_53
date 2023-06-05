@@ -16,29 +16,6 @@ import static io.restassured.RestAssured.given;
 
 public class DataGenerator {
 
-    private static final RequestSpecification requestSpec = new RequestSpecBuilder()
-            .setBaseUri("http://localhost")
-            .setPort(8080)
-            .setAccept(ContentType.JSON)
-            .setContentType(ContentType.JSON)
-            .log(LogDetail.ALL)
-            .build();
-    private static final Faker faker = new Faker(new Locale("en"));
-
-    private DataGenerator() {
-    }
-
-    private static void sendRequest(CardInfo card) {
-        Gson gson = new Gson();
-        String jsonCard = gson.toJson(card);
-        given()
-                .spec(requestSpec)
-                .body(jsonCard)
-                .when()
-                .post("/api/system/cards")
-                .then()
-                .statusCode(200);
-    }
     public static CardInfo getApprovedCard() {
         return new CardInfo("4444444444444441", "12", "23", "Anna Ivanova", "452");
     }
@@ -113,7 +90,15 @@ public class DataGenerator {
         return new CardInfo("4444444444444441", "04", year, owner, cvc);
     }
 
-    public static CardInfo getMonth00() {
+    public static CardInfo getMonth00OfThisYear() {
+        Faker faker = new Faker();
+        String year = generateYear(0);
+        String owner = faker.name().firstName() + " " + faker.name().lastName();
+        String cvc = faker.number().digits(3);
+        return new CardInfo("4444444444444441", "00", year, owner, cvc);
+    }
+
+    public static CardInfo getMonth00OfTheNextYear() {
         Faker faker = new Faker();
         String year = generateYear(1);
         String owner = faker.name().firstName() + " " + faker.name().lastName();
@@ -155,6 +140,15 @@ public class DataGenerator {
         return new CardInfo("4444444444444441", month, year, owner, cvc);
     }
 
+    public static CardInfo getInvalidFormatYear() {
+        Faker faker = new Faker();
+        String month = generateMonth();
+        String year = faker.number().digit();
+        String owner = faker.name().firstName() + " " + faker.name().lastName();
+        String cvc = faker.number().digits(3);
+        return new CardInfo("4444444444444441", month, year, owner, cvc);
+    }
+
     public static CardInfo getEmptyOwner() {
         Faker faker = new Faker();
         String month = generateMonth();
@@ -162,6 +156,7 @@ public class DataGenerator {
         String cvc = faker.number().digits(3);
         return new CardInfo("4444444444444441", month, year, "", cvc);
     }
+
 
     public static CardInfo getNumbersInTheFieldOwner() {
         Faker faker = new Faker();
