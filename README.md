@@ -11,8 +11,8 @@
 
 ## Документация
 * [План автоматизации тестирования](https://github.com/AnstasiaKli/diploma_qa_53/blob/main/docs/Plan.md)
-* [Отчётные документы по итогам тестирования]()
-* [Отчётные документы по итогам автоматизации]()
+* [Отчётные документы по итогам тестирования](https://github.com/AnstasiaKli/diploma_qa_53/blob/main/docs/Report.md)
+* [Отчётные документы по итогам автоматизации](https://github.com/AnstasiaKli/diploma_qa_53/blob/main/docs/Summary.md)
 
 ### Настройка окружения
 1. Открыть код программы в IDEA.

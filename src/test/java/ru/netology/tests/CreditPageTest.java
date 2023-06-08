@@ -15,8 +15,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreditPageTest {
-        StartPage startPage = open("http://localhost:8080", StartPage.class);
-        public static String url = System.getProperty("sut.url");
+    StartPage startPage = open("http://localhost:8080", StartPage.class);
 
     @BeforeAll
     static void setUpAll() {
@@ -37,7 +36,7 @@ public class CreditPageTest {
     @DisplayName("Successful buy a tour on credit approved card")
     void shouldSuccessfullyBuyATourOnCreditApprovedCard() {
         startPage.toCreditPage();
-        var cardInfo= DataGenerator.getApprovedCard();
+        var cardInfo = DataGenerator.getApprovedCard();
         var creditPage = new CreditPage();
         creditPage.fillCardData(cardInfo);
         creditPage.waitNotificationSuccess();
@@ -49,7 +48,7 @@ public class CreditPageTest {
     void shouldErrorBuyATourOnCreditDeclinedCard() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getDeclinedCard();
+        var cardInfo = DataGenerator.getDeclinedCard();
         creditPage.fillCardData(cardInfo);
         creditPage.waitNotificationError();
         assertEquals("DECLINED", DataBaseHelper.findCreditRequestStatus());
@@ -60,7 +59,7 @@ public class CreditPageTest {
     void shouldErrorEmptyCardNumberOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getEmptyCardNumber();
+        var cardInfo = DataGenerator.getEmptyCardNumber();
         creditPage.fillCardData(cardInfo);
         creditPage.cardNumberFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -71,7 +70,7 @@ public class CreditPageTest {
     void shouldErrorNonexistentCardNumberOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getNonexistentCardNumber();
+        var cardInfo = DataGenerator.getNonexistentCardNumber();
         creditPage.fillCardData(cardInfo);
         creditPage.waitNotificationError();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -82,7 +81,7 @@ public class CreditPageTest {
     void shouldError15SymbolsCardNumberOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.get15SymbolsCardNumber();
+        var cardInfo = DataGenerator.get15SymbolsCardNumber();
         creditPage.fillCardData(cardInfo);
         creditPage.cardNumberFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -93,7 +92,7 @@ public class CreditPageTest {
     void shouldErrorEmptyMonthOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getEmptyMonth();
+        var cardInfo = DataGenerator.getEmptyMonth();
         creditPage.fillCardData(cardInfo);
         creditPage.wrongFormatMonthErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -104,7 +103,7 @@ public class CreditPageTest {
     void shouldErrorInvalidFormatMonthOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getInvalidFormatMonth();
+        var cardInfo = DataGenerator.getInvalidFormatMonth();
         creditPage.fillCardData(cardInfo);
         creditPage.wrongFormatMonthErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -115,7 +114,7 @@ public class CreditPageTest {
     void shouldErrorNonexistentMonthOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getNonexistentMonth();
+        var cardInfo = DataGenerator.getNonexistentMonth();
         creditPage.fillCardData(cardInfo);
         creditPage.wrongExpirationMonthErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -126,7 +125,7 @@ public class CreditPageTest {
     void shouldErrorPreviousMonthOfThisYearOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getPreviousMonthOfThisYear();
+        var cardInfo = DataGenerator.getPreviousMonthOfThisYear();
         creditPage.fillCardData(cardInfo);
         creditPage.wrongExpirationMonthErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -137,7 +136,7 @@ public class CreditPageTest {
     void shouldErrorMonth00OfThisYearOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getMonth00OfThisYear();
+        var cardInfo = DataGenerator.getMonth00OfThisYear();
         creditPage.fillCardData(cardInfo);
         creditPage.wrongExpirationMonthErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -148,7 +147,7 @@ public class CreditPageTest {
     void shouldErrorMonth00OfTheNextYearOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getMonth00OfTheNextYear();
+        var cardInfo = DataGenerator.getMonth00OfTheNextYear();
         creditPage.fillCardData(cardInfo);
         creditPage.wrongExpirationMonthErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -159,7 +158,7 @@ public class CreditPageTest {
     void shouldErrorEmptyYearOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getEmptyYear();
+        var cardInfo = DataGenerator.getEmptyYear();
         creditPage.fillCardData(cardInfo);
         creditPage.wrongFormatMonthErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -170,7 +169,7 @@ public class CreditPageTest {
     void shouldErrorYear00OnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getYear00();
+        var cardInfo = DataGenerator.getYear00();
         creditPage.fillCardData(cardInfo);
         creditPage.previousYearErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -181,7 +180,7 @@ public class CreditPageTest {
     void shouldErrorPreviousYearOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getPreviousYearToDate();
+        var cardInfo = DataGenerator.getPreviousYearToDate();
         creditPage.fillCardData(cardInfo);
         creditPage.previousYearErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -192,7 +191,7 @@ public class CreditPageTest {
     void shouldErrorYearPlus6YearsToDateOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getYearPlus6YearsToDate();
+        var cardInfo = DataGenerator.getYearPlus6YearsToDate();
         creditPage.fillCardData(cardInfo);
         creditPage.wrongExpirationYearErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -203,7 +202,7 @@ public class CreditPageTest {
     void shouldErrorInvalidFormatYearOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getInvalidFormatYear();
+        var cardInfo = DataGenerator.getInvalidFormatYear();
         creditPage.fillCardData(cardInfo);
         creditPage.wrongFormatYearErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -214,7 +213,7 @@ public class CreditPageTest {
     void shouldErrorEmptyOwnerOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getEmptyOwner();
+        var cardInfo = DataGenerator.getEmptyOwner();
         creditPage.fillCardData(cardInfo);
         creditPage.emptyOwnerErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -225,7 +224,7 @@ public class CreditPageTest {
     void shouldErrorNumbersInTheFieldOwnerOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getNumbersInTheFieldOwner();
+        var cardInfo = DataGenerator.getNumbersInTheFieldOwner();
         creditPage.fillCardData(cardInfo);
         creditPage.ownerFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -236,7 +235,7 @@ public class CreditPageTest {
     void shouldErrorSpecialSymbolsInTheFieldOwnerOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getSpecialSymbolsInTheFieldOwner();
+        var cardInfo = DataGenerator.getSpecialSymbolsInTheFieldOwner();
         creditPage.fillCardData(cardInfo);
         creditPage.ownerFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -247,7 +246,7 @@ public class CreditPageTest {
     void shouldErrorOver60SymbolsInTheFieldOwnerOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getOver60SymbolsInTheFieldOwner();
+        var cardInfo = DataGenerator.getOver60SymbolsInTheFieldOwner();
         creditPage.fillCardData(cardInfo);
         creditPage.ownerFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -258,7 +257,7 @@ public class CreditPageTest {
     void shouldError1SymbolInTheFieldOwnerOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.get1SymbolInTheFieldOwner();
+        var cardInfo = DataGenerator.get1SymbolInTheFieldOwner();
         creditPage.fillCardData(cardInfo);
         creditPage.ownerFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -269,7 +268,7 @@ public class CreditPageTest {
     void shouldErrorEmptyCVCOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getEmptyCVC();
+        var cardInfo = DataGenerator.getEmptyCVC();
         creditPage.fillCardData(cardInfo);
         creditPage.cvcEmptyErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
@@ -280,7 +279,7 @@ public class CreditPageTest {
     void shouldErrorCVC2SymbolsOnCredit() {
         startPage.toCreditPage();
         var creditPage = new CreditPage();
-        var cardInfo= DataGenerator.getCVC2Symbols();
+        var cardInfo = DataGenerator.getCVC2Symbols();
         creditPage.fillCardData(cardInfo);
         creditPage.cvcFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CardPaymentPageTest {
     StartPage startPage = open("http://localhost:8080", StartPage.class);
-    public static String url = System.getProperty("sut.url");
+
 
     @BeforeAll
     static void setUpAll() {
@@ -43,8 +43,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error buy a tour on credit declined card")
-    void shouldErrorBuyATourOnCreditDeclinedCard() {
+    @DisplayName("Error buy a tour declined card")
+    void shouldErrorBuyATourDeclinedCard() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getDeclinedCard();
@@ -54,8 +54,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error empty card number on credit")
-    void shouldErrorEmptyCardNumberOnCredit() {
+    @DisplayName("Error empty card number")
+    void shouldErrorEmptyCardNumber() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getEmptyCardNumber();
@@ -65,8 +65,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error nonexistent card number on credit")
-    void shouldErrorNonexistentCardNumberOnCredit() {
+    @DisplayName("Error nonexistent card number")
+    void shouldErrorNonexistentCardNumber() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getNonexistentCardNumber();
@@ -76,8 +76,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error 15 Symbols card number on credit")
-    void shouldError15SymbolsCardNumberOnCredit() {
+    @DisplayName("Error 15 Symbols card number")
+    void shouldError15SymbolsCardNumber() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.get15SymbolsCardNumber();
@@ -87,8 +87,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error empty month on credit")
-    void shouldErrorEmptyMonthOnCredit() {
+    @DisplayName("Error empty month")
+    void shouldErrorEmptyMonth() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getEmptyMonth();
@@ -98,8 +98,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error invalid Format Month on credit")
-    void shouldErrorInvalidFormatMonthOnCredit() {
+    @DisplayName("Error invalid Format Month")
+    void shouldErrorInvalidFormatMonth() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getInvalidFormatMonth();
@@ -109,8 +109,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error nonexistent month on credit")
-    void shouldErrorNonexistentMonthOnCredit() {
+    @DisplayName("Error nonexistent month")
+    void shouldErrorNonexistentMonth() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getNonexistentMonth();
@@ -120,8 +120,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error previous month of this year on credit")
-    void shouldErrorPreviousMonthOfThisYearOnCredit() {
+    @DisplayName("Error previous month of this year")
+    void shouldErrorPreviousMonthOfThisYear() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getPreviousMonthOfThisYear();
@@ -131,8 +131,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error month 00 of this year on credit")
-    void shouldErrorMonth00OfThisYearOnCredit() {
+    @DisplayName("Error month 00 of this year")
+    void shouldErrorMonth00OfThisYear() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getMonth00OfThisYear();
@@ -142,8 +142,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error month 00 of the next year on credit")
-    void shouldErrorMonth00OfTheNextYearOnCredit() {
+    @DisplayName("Error month 00 of the next year")
+    void shouldErrorMonth00OfTheNextYear() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getMonth00OfTheNextYear();
@@ -153,8 +153,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error empty year on credit")
-    void shouldErrorEmptyYearOnCredit() {
+    @DisplayName("Error empty year")
+    void shouldErrorEmptyYear() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getEmptyYear();
@@ -164,8 +164,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error year 00 on credit")
-    void shouldErrorYear00OnCredit() {
+    @DisplayName("Error year 00")
+    void shouldErrorYear00() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getYear00();
@@ -175,8 +175,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error previous year on credit")
-    void shouldErrorPreviousYearOnCredit() {
+    @DisplayName("Error previous year")
+    void shouldErrorPreviousYear() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getPreviousYearToDate();
@@ -186,8 +186,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error year plus 6 years to date on credit")
-    void shouldErrorYearPlus6YearsToDateOnCredit() {
+    @DisplayName("Error year plus 6 years to date")
+    void shouldErrorYearPlus6YearsToDate() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getYearPlus6YearsToDate();
@@ -197,8 +197,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error invalid format year on credit")
-    void shouldErrorInvalidFormatYearOnCredit() {
+    @DisplayName("Error invalid format year")
+    void shouldErrorInvalidFormatYear() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getInvalidFormatYear();
@@ -208,8 +208,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error empty owner on credit")
-    void shouldErrorEmptyOwnerOnCredit() {
+    @DisplayName("Error empty owner")
+    void shouldErrorEmptyOwner() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getEmptyOwner();
@@ -219,8 +219,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error numbers in the field owner on credit")
-    void shouldErrorNumbersInTheFieldOwnerOnCredit() {
+    @DisplayName("Error numbers in the field owner")
+    void shouldErrorNumbersInTheFieldOwner() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getNumbersInTheFieldOwner();
@@ -230,8 +230,8 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error special symbols in the field owner on credit")
-    void shouldErrorSpecialSymbolsInTheFieldOwnerOnCredit() {
+    @DisplayName("Error special symbols in the field owner")
+    void shouldErrorSpecialSymbolsInTheFieldOwner() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
         var cardInfo = DataGenerator.getSpecialSymbolsInTheFieldOwner();
@@ -241,44 +241,44 @@ public class CardPaymentPageTest {
     }
 
     @Test
-    @DisplayName("Error over 60 symbols in the field owner on credit")
-    void shouldErrorOver60SymbolsInTheFieldOwnerOnCredit() {
+    @DisplayName("Error over 60 symbols in the field owner")
+    void shouldErrorOver60SymbolsInTheFieldOwner() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
-        var cardInfo= DataGenerator.getOver60SymbolsInTheFieldOwner();
+        var cardInfo = DataGenerator.getOver60SymbolsInTheFieldOwner();
         cardPaymentPage.fillCardData(cardInfo);
         cardPaymentPage.ownerFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
     }
 
     @Test
-    @DisplayName("Error 1 symbol in the field owner on credit")
-    void shouldError1SymbolInTheFieldOwnerOnCredit() {
+    @DisplayName("Error 1 symbol in the field owner")
+    void shouldError1SymbolInTheFieldOwner() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
-        var cardInfo= DataGenerator.get1SymbolInTheFieldOwner();
+        var cardInfo = DataGenerator.get1SymbolInTheFieldOwner();
         cardPaymentPage.fillCardData(cardInfo);
         cardPaymentPage.ownerFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
     }
 
     @Test
-    @DisplayName("Error empty CVC on credit")
-    void shouldErrorEmptyCVCOnCredit() {
+    @DisplayName("Error empty CVC")
+    void shouldErrorEmptyCVC() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
-        var cardInfo= DataGenerator.getEmptyCVC();
+        var cardInfo = DataGenerator.getEmptyCVC();
         cardPaymentPage.fillCardData(cardInfo);
         cardPaymentPage.cvcEmptyErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
     }
 
     @Test
-    @DisplayName("Error CVC 2 symbols on credit")
-    void shouldErrorCVC2SymbolsOnCredit() {
+    @DisplayName("Error CVC 2 symbols")
+    void shouldErrorCVC2Symbols() {
         startPage.toCardPaymentPage();
         var cardPaymentPage = new CardPaymentPage();
-        var cardInfo= DataGenerator.getCVC2Symbols();
+        var cardInfo = DataGenerator.getCVC2Symbols();
         cardPaymentPage.fillCardData(cardInfo);
         cardPaymentPage.cvcFormatErrorVisible();
         assertEquals("0", DataBaseHelper.orderCount());
